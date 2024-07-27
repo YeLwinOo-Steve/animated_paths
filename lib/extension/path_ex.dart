@@ -5,8 +5,6 @@ extension PathEx on Path {
   Path createAnimatedPath(
     double animationPercent,
   ) {
-    /// Don't know anything about it, just copied code from stackoverflow :)
-    /// ComputeMetrics can only be iterated once!
     final totalLength = computeMetrics()
         .fold(0.0, (double prev, PathMetric metric) => prev + metric.length);
 
