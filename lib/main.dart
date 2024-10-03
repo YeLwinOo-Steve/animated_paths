@@ -1,4 +1,4 @@
-import 'package:animated_path/animated_wave.dart';
+import 'package:animated_path/animated_paths.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AnimatedWave(),
+      home: const AnimatedPaths(),
     );
   }
 }

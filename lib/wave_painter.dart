@@ -1,7 +1,6 @@
 import 'package:animated_path/extension/path_ex.dart';
 import 'package:flutter/material.dart';
 
-
 class WavePathPainter extends CustomPainter {
   final Animation<double> _animation;
   final Color color;
@@ -11,6 +10,7 @@ class WavePathPainter extends CustomPainter {
     required this.color,
     this.strokeWidth = 3.0,
   });
+
   Path _createWavePath(Size size) {
     var path = Path();
     var x = 0.0;
