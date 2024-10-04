@@ -24,7 +24,8 @@ class _AnimatedPathsState extends State<AnimatedPaths>
         milliseconds: 1000,
       ),
     )
-      ..repeat(reverse: true)
+      ..forward()
+      // ..repeat(reverse: true)
       ..addListener(
         () => setState(() {}),
       );
@@ -50,20 +51,20 @@ class _AnimatedPathsState extends State<AnimatedPaths>
           children: [
             SizedBox(
               width: 300,
-              height: 150,
+              height: 5,
               child: LinePath(
                 color: Colors.teal,
                 animation: pathTween,
               ),
             ),
-            SizedBox(
-              width: 300,
-              height: 150,
-              child: WavePath(
-                color: Colors.teal,
-                animation: pathTween,
-              ),
-            ),
+            // SizedBox(
+            //   width: 300,
+            //   height: 150,
+            //   child: WavePath(
+            //     color: Colors.teal,
+            //     animation: pathTween,
+            //   ),
+            // ),
           ],
         ),
       ),

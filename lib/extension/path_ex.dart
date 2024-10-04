@@ -1,10 +1,13 @@
-
 import 'dart:ui';
 
 extension PathEx on Path {
   Path createAnimatedPath(
     double animationPercent,
   ) {
+    if (animationPercent == 1.0) {
+      // No need to extract; just return the original path.
+      return this; // Return the original path directly.
+    }
     final totalLength = computeMetrics()
         .fold(0.0, (double prev, PathMetric metric) => prev + metric.length);
 
@@ -34,7 +37,6 @@ extension PathEx on Path {
         path.addPath(pathSegment, Offset.zero);
         break;
       } else {
-        // There might be a more efficient way of extracting an entire path
         final pathSegment = metric.extractPath(0.0, metric.length);
         path.addPath(pathSegment, Offset.zero);
       }
@@ -45,4 +47,3 @@ extension PathEx on Path {
     return path;
   }
 }
-
