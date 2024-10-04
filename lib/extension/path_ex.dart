@@ -1,6 +1,13 @@
 import 'dart:ui';
 
 extension PathEx on Path {
+  static List<PathMetric>? _metricsCache;
+
+  List<PathMetric> getMetrics() {
+    _metricsCache ??= computeMetrics().toList();
+    return _metricsCache!;
+  }
+
   Path createAnimatedPath(
     double animationPercent,
   ) {
@@ -8,7 +15,7 @@ extension PathEx on Path {
       // No need to extract; just return the original path.
       return this; // Return the original path directly.
     }
-    final totalLength = computeMetrics()
+    final totalLength = getMetrics()
         .fold(0.0, (double prev, PathMetric metric) => prev + metric.length);
 
     final currentLength = totalLength * animationPercent;
@@ -23,7 +30,7 @@ extension PathEx on Path {
 
     final path = Path();
 
-    var metricsIterator = computeMetrics().iterator;
+    var metricsIterator = getMetrics().iterator;
     while (metricsIterator.moveNext()) {
       var metric = metricsIterator.current;
 
